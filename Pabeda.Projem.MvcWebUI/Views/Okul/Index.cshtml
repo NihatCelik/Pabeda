@@ -1,0 +1,46 @@
+﻿@model Pabeda.Projem.MvcWebUI.Models.OkulListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Okul Adı</th>
+            <th>Adres</th>
+            <th>Şehir</th>
+            <th>İlçe</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Okuls)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OkulAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sehir)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ilce)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.OkulId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.OkulId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.OkulId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

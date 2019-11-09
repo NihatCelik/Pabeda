@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pabeda.Core\Pabeda.Core.csproj" />
+    <ProjectReference Include="..\Pabeda.Projem.DataAccess\Pabeda.Projem.DataAccess.csproj" />
+    <ProjectReference Include="..\Pabeda.Projem.Entities\Pabeda.Projem.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

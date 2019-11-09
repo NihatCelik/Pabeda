@@ -1,0 +1,66 @@
+﻿@model Pabeda.Projem.Entities.Concrete.Ogrenci
+
+@{
+    ViewData["Title"] = "OgrenciEkle";
+}
+
+<h1>OgrenciEkle</h1>
+
+<h4>Ogrenci</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="OgrenciEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Isim" class="control-label"></label>
+                @Html.TextBox("Isim")
+                <span asp-validation-for="Isim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soyisim" class="control-label"></label>
+                @Html.TextBox("Soyisim")
+                <span asp-validation-for="Soyisim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TCKimlikNo" class="control-label"></label>
+                @Html.TextBox("TCKimlikNo")
+                <span asp-validation-for="TCKimlikNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button id="btnAdd" value="Create" class="btn btn-primary" text="Add" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script type="text/javascript">
+
+        $("#btnAdd").click(function () {
+
+            var ogrenci = {
+                "OkulAdi": $("#Isim").val(),
+                "Adres": $("#Soyisim").val(),
+                "Sehir": $("#TCKimlikNo").val(),
+                "Ilce": $("#TCKimlikNo").val(),
+            };
+
+            $.ajax({
+                type: "POST",
+                url: 'http://localhost:59702/api/Okul/PostOkul',
+                data: JSON.stringify(ogrenci),
+                contentType: "application/json;charset=utf-8",
+                success: function (data, status, xhr) {
+                    alert("The result is : " + status + ": " + data);
+                },
+                error: function (xhr) {
+                    alert(xhr.responseText);
+                }
+            });
+        });
+</script>
+
